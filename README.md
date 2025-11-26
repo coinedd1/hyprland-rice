@@ -1,8 +1,9 @@
 # Adaptive Hyprland Rice
 Hyprland dotfiles with my main theme, some scripts and custom themes missing. Uses matugen to generate and apply color schemes.
 
-Will make simple install script at some point
-
+* Will make simple install script at some point
+* Will clean up files at some point
+  
 # PREVIEW
 
 <img width="1920" height="1200" alt="2025-11-25-215812_hyprshot" src="https://github.com/user-attachments/assets/da0c75b9-f642-4ffa-ac53-62d3e4168c53" />
