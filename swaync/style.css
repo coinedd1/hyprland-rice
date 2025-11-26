@@ -1,0 +1,290 @@
+@import 'matugen/colors.css';
+
+* {
+  font-size: 14px;
+  font-family: "Noto Sans";
+  transition: 100ms;
+  box-shadow: unset;
+}
+
+.control-center .notification-row {
+  background-color: @surface_container;
+}
+
+/* NOTIFICATION BORDER */
+.control-center .notification-row .notification-background .notification,
+.control-center .notification-row .notification-background .notification .notification-content,
+.floating-notifications .notification-row .notification-background .notification,
+.floating-notifications.background .notification-background .notification .notification-content {
+  background-color: @surface_container_high;
+  margin-bottom: unset;
+}
+
+/* NOTIFICATION BORDER (IN CONTROL CENTER)*/
+.control-center .notification-row .notification-background .notification {
+  background-color: @surface_container_high;
+  margin-top: 0.150rem;
+}
+
+/* Floating Notification Background */
+.control-center .notification-row .notification-background .notification box,
+.control-center .notification-row .notification-background .notification widget,
+.control-center .notification-row .notification-background .notification .notification-content,
+.floating-notifications .notification-row .notification-background .notification box,
+.floating-notifications .notification-row .notification-background .notification widget,
+.floating-notifications.background .notification-background .notification .notification-content {
+  background-color: @surface_container;
+  border: unset;
+  border-radius: 8px;
+  -gtk-outline-radius: 8px;
+}
+
+/* PADDING COLOR */
+.floating-notifications.background .notification-background .notification .notification-content,
+.control-center .notification-background .notification .notification-content {
+  background-color: unset;
+  padding: 0.818rem;
+  padding-right: unset;
+  margin-right: unset;
+}
+/* notification text within control */
+.control-center .notification-row .notification-background .notification.low .notification-content label,
+.control-center .notification-row .notification-background .notification.normal .notification-content label,
+.floating-notifications.background .notification-background .notification.low .notification-content label,
+.floating-notifications.background .notification-background .notification.normal .notification-content label {
+  color: @on_surface_container;
+}
+/* Little square on top right of notification idk */
+.control-center .notification-row .notification-background .notification.low .notification-content image,
+.control-center .notification-row .notification-background .notification.normal .notification-content image,
+.floating-notifications.background .notification-background .notification.low .notification-content image,
+.floating-notifications.background .notification-background .notification.normal .notification-content image {
+  background-color: unset;
+  color: @on_surface_variant;
+}
+/* background color change completely covers floating notification text */
+.control-center .notification-row .notification-background .notification.low .notification-content .body,
+.control-center .notification-row .notification-background .notification.normal .notification-content .body,
+.floating-notifications.background .notification-background .notification.low .notification-content .body,
+.floating-notifications.background .notification-background .notification.normal .notification-content .body {
+  color: @on_surface_variant;
+}
+/* i cant tell what this does */
+.control-center .notification-row .notification-background .notification.critical .notification-content,
+.floating-notifications.background .notification-background .notification.critical .notification-content {
+  background-color: @error;
+}
+
+/* i cant tell what this does */
+.control-center .notification-row .notification-background .notification.critical .notification-content image,
+.floating-notifications.background .notification-background .notification.critical .notification-content image {
+  color: @on_error_container;
+}
+
+/* i cant tell what this does  */
+.control-center .notification-row .notification-background .notification.critical .notification-content label,
+.floating-notifications.background .notification-background .notification.critical .notification-content label {
+  color: @on_error;
+}
+/* adding background color covers notification title (not subtext) */
+.control-center .notification-row .notification-background .notification .notification-content .summary,
+.floating-notifications.background .notification-background .notification .notification-content .summary {
+  font-family: 'Gabarito', 'Lexend', sans-serif;
+  font-size: 0.9909rem;
+  font-weight: 500;
+  color: @on_surface;
+}
+/* adding background color covers time signature (10mins ago) */
+.control-center .notification-row .notification-background .notification .notification-content .time,
+.floating-notifications.background .notification-background .notification .notification-content .time {
+  font-family: 'Geist', 'AR One Sans', 'Inter', 'Roboto', 'Noto Sans', 'Ubuntu', sans-serif;
+  font-size: 0.8291rem;
+  font-weight: 500;
+  margin-right: 1rem;
+  color: @on_surface_variant;
+}
+/* adding background color covers floating notification subtext */
+.control-center .notification-row .notification-background .notification .notification-content .body,
+.floating-notifications.background .notification-background .notification .notification-content .body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.8891rem;
+  font-weight: 400;
+  margin-top: 0.310rem;
+  color: @on_surface_variant;
+}
+
+/* X button */
+.control-center .notification-row .close-button,
+.floating-notifications.background .close-button {
+  background-color: unset;
+  border-radius: 100%;
+  border: none;
+  box-shadow: none;
+  margin-right: 13px;
+  margin-top: 6px;
+  min-height: 20px;
+  min-width: 20px;
+  text-shadow: none;
+}
+
+
+.control-center .notification-row .close-button:hover,
+.floating-notifications.background .close-button:hover {
+  background-color: @surface_container_highest;
+}
+
+/* actual control center, main thing you see */
+.control-center {
+  border-radius: 8px;
+  -gtk-outline-radius: 8px;
+  border: 1px solid @primary;
+  box-shadow: 0px 2px 3px @shadow;
+  margin: 7px;
+  background-color: @surface_container;
+  padding: 1.023rem;
+}
+
+.control-center trough {
+  background-color: @surface_variant;
+  border-radius: 9999px;
+  -gtk-outline-radius: 9999px;
+  min-width: 0.545rem;
+}
+
+.control-center slider {
+  border-radius: 9999px;
+  -gtk-outline-radius: 9999px;
+  min-width: 0.273rem;
+  min-height: 2.045rem;
+  background-color: @on_surface_variant;
+}
+
+.control-center slider:hover {
+  background-color: @on_surface;
+}
+
+.control-center slider:active {
+  background-color: @surface_container;
+}
+
+/* Title widget */
+
+.widget-title {
+  padding: 0.341rem;
+  margin: unset;
+}
+
+/* "notifications" label color */
+.widget-title label {
+  font-family: 'Gabarito', 'Lexend', sans-serif;
+  font-size: 1.364rem;
+  color: @on_surface;
+  margin-left: 0.941rem;
+}
+
+/* "Clear" Button Background */
+.widget-title button {
+  border: unset;
+  background-color: @surface_container_low;
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem;
+  padding: 0.141rem 0.141rem;
+  margin-right: 0.841rem;
+}
+
+/* "Clear" Button TEXT */
+.widget-title button label {
+  font-family: 'Gabarito', sans-serif;
+  font-size: 1.0409rem;
+  color: @on_surface;
+  margin-right: 0.841rem;
+}
+
+.widget-title button:hover {
+  background-color: @surface_container_high;
+}
+
+.widget-title button:active {
+  background-color: @surface_container_highest;
+}
+
+/* Buttons widget */
+
+.widget-buttons-grid {
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem;
+  background-color: @surface_container_low;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  border: none;
+  background-color: unset;
+  border-radius: 9999px;
+  min-width: 5.522rem;
+  min-height: 2.927rem;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button label {
+  font-family: "Material Symbols Rounded";
+  font-size: 1.3027rem;
+  color: @on_surface;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background-color: @surface_container_high;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:checked {
+  background-color: @primary;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:checked label {
+  color: @on_primary;
+}
+
+/* Volume widget */
+
+.widget-volume {
+  background-color: @surface_container_low;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem;
+}
+
+.widget-volume trough {
+  border: unset;
+  background-color: @outline_variant;
+}
+
+.widget-volume trough slider {
+  background-color: @primary;
+  border-radius: 100%;
+  min-height: 1.25rem;
+}
+
+/* Mpris widget */
+
+.widget-mpris {
+  background-color: @surface_container_low;
+  padding: 4px;
+  margin: 4px;  
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem;  
+}
+
+.widget-mpris-player {
+  padding: 8px;
+  margin: 4px;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: @on_surface;
+}
+
+.widget-mpris-subtitle {
+  font-size: 1.1rem;
+  color: @on_surface_variant;
+}

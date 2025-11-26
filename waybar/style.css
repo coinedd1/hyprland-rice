@@ -1,0 +1,187 @@
+@import "colors.css";
+*
+
+{
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif, "Hack";
+    font-size: 14px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @on_surface;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+tooltip {
+    background-color: @surface_container_highest;
+    color: @on_surface;
+}
+
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 0px @surface_container_high
+   /* border-radius: 0; */
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: @on_secondary_container;
+    box-shadow: inset 0 -3px @primary_container;
+}
+
+/* you can set a style on hover for any module like this */
+
+#workspaces{
+    transition: all 0.3s ease-in-out;
+    background-color: @surface_container;
+    border-radius: 8px;
+    /* border: 1px solid @on_surface_container_high; */
+}
+
+#workspaces button {
+    padding: 0 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+    color: @on_surface;
+}
+
+#workspaces button.active {
+    padding: 0 35px;
+    transition: all 0.3s ease-in-out;
+    background-color: @secondary_container;
+    color: @on_surface_container;
+}
+
+#workspaces button:hover {
+    background: @secondary_container;
+    transition: all 0.3s ease-in-out;
+    color: @on_secondary_container;
+}
+
+#clock,
+#battery,
+#network,
+#temperature,
+#pulseaudio,
+#wireplumber,
+#custom-notification {
+    background-color: @surface_container;
+    color: @on_surface;
+    /* border: 1px solid @on_surface_container_high; */
+    border-radius: 8px;
+    padding: 0 12px;
+}
+
+#custom-power{
+    font-size: 130%;
+    background-color: @surface_container;
+    /* border: 1px solid @on_surface_container_high; */
+    color: @primary;
+    border-radius: 8px;
+    padding: 0px 2px 0px 9px;
+}
+
+/* #power-profiles-daemon.power-saver{
+    font-size: 110%;
+    padding: 0 5 0 10;
+}
+
+#power-profiles-daemon.balanced{
+    font-size: 110%;
+    padding: 0 7 0 8;
+}
+
+#power-profiles-daemon.performance{
+    font-size: 110%;
+    padding: 0 11 0 10;
+} */
+
+
+
+#battery{
+    padding: 0 8 0 10;
+}
+#clock:hover,
+#custom-notification:hover,
+#network:hover,
+#battery:hover,
+#battery.charging:hover,
+#battery.plugged:hover,
+#power-profiles-daemon:hover,
+#pulseaudio:hover {
+    background-color: @secondary_container;
+    transition: all 0.3s ease-in-out;
+    color: @on_surface_container_high;
+}
+
+#custom-power:hover {
+    background-color: @secondary_container;
+    transition: all 0.3s ease-in-out;
+    color: @primary;
+}
+
+#window {
+    color: @on_surface
+}
+
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+@keyframes border-blink{
+    to{
+        color: @primary;
+    }
+}
+
+#battery.charging, #battery.plugged {
+   /* border: 2px solid @outline_variant; */
+    color: @on_surface;
+    background-color: @surface_container;
+    animation-name: border-blink;
+    animation-duration: 1.0s;
+    animation-timing-function: steps(24);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @primary_container;
+        color: @on_surface;
+        border-color: @error;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: @surface_container;
+    color: @on_primary_container;
+    animation: blink 1s steps(24) infinite alternate;
+}

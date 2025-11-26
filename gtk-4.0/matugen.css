@@ -1,0 +1,216 @@
+/*
+* GTK Colors
+* Generated with Matugen
+*/
+* {
+    font-weight: 500;
+    font-family: "SF Pro Text", sans-serif;
+}
+
+/* 
+ * GTK3/4 Matugen Template 
+ * Strictly follows adw-gtk3 default structure to prevent broken transparency 
+ */
+
+/* --- 1. Standard Definitions --- */
+@define-color accent_bg_color #9cd49f;
+@define-color accent_fg_color #003914;
+@define-color accent_color #9cd49f;
+
+@define-color destructive_bg_color #ffb4ab;
+@define-color destructive_fg_color #690005;
+@define-color destructive_color #ffb4ab;
+
+@define-color success_bg_color #26a269;
+@define-color success_fg_color white;
+@define-color success_color #26a269;
+
+@define-color warning_bg_color #cd9309;
+@define-color warning_fg_color rgba(0, 0, 0, 0.8);
+@define-color warning_color #cd9309;
+
+@define-color error_bg_color #ffb4ab;
+@define-color error_fg_color #690005;
+@define-color error_color #ffb4ab;
+
+/* --- 2. Window & Backgrounds --- */
+@define-color window_bg_color #101510;
+@define-color window_fg_color #e0e4db;
+
+@define-color view_bg_color #101510;
+@define-color view_fg_color #e0e4db;
+
+@define-color headerbar_bg_color #1c211c;
+@define-color headerbar_fg_color #e0e4db;
+@define-color headerbar_border_color rgba(255, 255, 255, 0.1);
+@define-color headerbar_backdrop_color @window_bg_color;
+@define-color headerbar_shade_color rgba(0, 0, 0, 0.36);
+@define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.9);
+
+@define-color sidebar_bg_color #181d18;
+@define-color sidebar_fg_color #e0e4db;
+@define-color sidebar_backdrop_color @window_bg_color;
+@define-color sidebar_shade_color rgba(0, 0, 0, 0.25);
+@define-color sidebar_border_color rgba(0, 0, 0, 0.36);
+
+@define-color secondary_sidebar_bg_color #0b0f0b;
+@define-color secondary_sidebar_fg_color #e0e4db;
+@define-color secondary_sidebar_backdrop_color @window_bg_color;
+@define-color secondary_sidebar_shade_color rgba(0, 0, 0, 0.25);
+@define-color secondary_sidebar_border_color rgba(0, 0, 0, 0.36);
+
+/* --- 3. Cards & Popovers (Preserving Transparency) --- */
+/* Using rgba to mimic the 'RGB / 8%' syntax but safe for Matugen */
+@define-color card_bg_color rgba(255, 255, 255, 0.08);
+@define-color card_fg_color #e0e4db;
+@define-color card_shade_color rgba(0, 0, 0, 0.36);
+
+@define-color dialog_bg_color #1c211c;
+@define-color dialog_fg_color #e0e4db;
+
+@define-color popover_bg_color #262b26;
+@define-color popover_fg_color #e0e4db;
+@define-color popover_shade_color rgba(0, 0, 0, 0.25);
+
+@define-color thumbnail_bg_color #313630;
+@define-color thumbnail_fg_color #e0e4db;
+
+@define-color shade_color rgba(0, 0, 0, 0.25);
+@define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
+
+/* --- 4. GTK3 Variables for adw-gtk3 (CRITICAL for Pavucontrol) --- */
+@define-color theme_bg_color @window_bg_color;
+@define-color theme_fg_color @window_fg_color;
+@define-color theme_base_color @view_bg_color;
+@define-color theme_text_color @view_fg_color;
+@define-color theme_selected_bg_color @accent_bg_color;
+@define-color theme_selected_fg_color @accent_fg_color;
+@define-color theme_unfocused_selected_bg_color @accent_bg_color;
+
+@define-color osd_bg_color @popover_bg_color;
+@define-color osd_fg_color @popover_fg_color;
+@define-color tooltip_bg_color @popover_bg_color;
+@define-color tooltip_fg_color @popover_fg_color;
+
+/* --- 5. The :root Block (Replaced with explicit colors to avoid oklab errors) --- */
+:root {
+    --accent-bg-color: #9cd49f;
+    --accent-fg-color: #003914;
+    --accent-color: #9cd49f;
+
+    --destructive-bg-color: #ffb4ab;
+    --destructive-fg-color: #690005;
+    --destructive-color: #ffb4ab;
+
+    --success-bg-color: #26a269;
+    --success-fg-color: white;
+    --success-color: #26a269;
+
+    --warning-bg-color: #cd9309;
+    --warning-fg-color: rgba(0, 0, 0, 0.8);
+    --warning-color: #cd9309;
+
+    --error-bg-color: #ffb4ab;
+    --error-fg-color: #690005;
+    --error-color: #ffb4ab;
+
+    --window-bg-color: #101510;
+    --window-fg-color: #e0e4db;
+    
+    --view-bg-color: #101510;
+    --view-fg-color: #e0e4db;
+    
+    --headerbar-bg-color: #1c211c;
+    --headerbar-fg-color: #e0e4db;
+    
+    --card-bg-color: rgba(255, 255, 255, 0.08);
+    --card-fg-color: #e0e4db;
+    
+    --popover-bg-color: #262b26;
+    --popover-fg-color: #e0e4db;
+}
+
+/* 
+ * FORCE colors on non-Libadwaita GTK4 apps (like Pavucontrol) 
+ */
+window, 
+window.background, 
+.background {
+    background-color: @window_bg_color;
+    color: @window_fg_color;
+}
+
+/* Force dialogs and popups too */
+dialog, 
+.dialog {
+    background-color: @dialog_bg_color;
+    color: @dialog_fg_color;
+}
+
+popover, 
+.popover {
+    background-color: @popover_bg_color;
+    color: @popover_fg_color;
+}
+
+/* Fix transparent cards in some GTK4 apps */
+list, 
+list > row {
+    background-color: transparent; 
+}
+
+/* If Pavucontrol specifically uses a 'window' node without a class */
+window controls {
+    background-color: @window_bg_color;
+}
+
+/* 
+ * FORCE Sliders / Volume Bars for Pavucontrol 
+ */
+
+/* The empty background of the slider */
+
+scale trough {
+    background-color: alpha(@window_fg_color, 0.15);
+    min-height: 6px;
+    border-radius: 99px;
+    
+    /* 
+     * Top: 6px (Gap from text above)
+     * Right: 0
+     * Bottom: 12px (Gap for the knob + breathing room for text below)
+     * Left: 0 
+     */
+    margin: 6px 0 12px 0;
+}
+
+/* OPTIONAL: Tighten the text labels below the slider even more */
+scale + label {
+    margin-top: -4px; /* Pulls the text closer if the above isn't enough */
+}
+
+/* The filled part of the slider (Accent Color) */
+scale highlight {
+    background-image: none;
+    background-color: @accent_bg_color;
+    border-radius: 99px;
+}
+
+/* The little knob/handle (Optional - makes it easier to see) */
+scale slider {
+    background-color: @window_fg_color;
+    min-height: 18px;
+    min-width: 18px;
+    margin: -6px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Hover effects */
+scale:hover trough {
+    background-color: alpha(@window_fg_color, 0.25);
+}
+
+scale:hover highlight {
+    background-color: mix(@accent_bg_color, white, 0.1);
+}g

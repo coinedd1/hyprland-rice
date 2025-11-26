@@ -1,0 +1,167 @@
+# This is a merged configuration file.
+# It uses the format and structure from the desired template,
+# but applies the matugen color palette from the original file.
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Format from the desired template, with matugen colors applied
+format = """
+[](color4)\
+$os\
+$username\
+[](bg:color1 fg:color4)\
+$directory\
+[](fg:color1 bg:color8)\
+$git_branch\
+$git_status\
+[](fg:color8 bg:color9)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:color9 bg:color1)\
+$docker_context\
+[](fg:color1 bg:color8)\
+$time\
+[ ](fg:color8)\
+$line_break$character"""
+
+# Matugen color palette
+palette = 'colors'
+
+[palettes.colors]
+mustard = '#af8700' # example
+color1 = '#9cd49f'
+color2 = '#003914'
+color3 = '#c1c9be'
+color4 = '#1c211c'
+color5 = '#003914'
+color6 = '#101510'
+color7 = '#101510'
+color8 = '#9cd49f'
+color9 = '#a1ced7'
+
+[os]
+disabled = false
+style = "bg:color4 fg:color3"
+format = '[ $symbol ]($style)'
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+[username]
+show_always = true
+style_user = "bg:color4 fg:color3"
+style_root = "bg:color4 fg:color3"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:color2 bg:color1"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:color8"
+format = '[[ $symbol $branch ](fg:color5 bg:color8)]($style)'
+
+[git_status]
+style = "bg:color8"
+format = '[[($all_status$ahead_behind )](fg:color5 bg:color8)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color9"
+format = '[[ $symbol( $version) ](fg:color2 bg:color9)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:color1"
+format = '[[ $symbol( $context) ](fg:color2 bg:color1)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color8"
+format = '[[  $time ](fg:color2 bg:color8)]($style)'
+
+[line_break]
+disabled = false
+
+# Prompt symbols from the original template
+[character]
+success_symbol = "[🞈](color9 bold)"
+
+error_symbol = "[🞈](#ff0062)"
+vicmd_symbol = "[🞈](#f9e2af)"
