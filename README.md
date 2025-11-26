@@ -1,5 +1,4 @@
-# My Hyprland Rice
-
+# Adaptive Hyprland Rice
 Hyprland dotfiles with my main theme, some scripts and custom themes missing. Uses matugen to generate and apply color schemes.
 
 Will make simple install script at some point
